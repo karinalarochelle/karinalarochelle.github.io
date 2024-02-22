@@ -2,16 +2,16 @@
 #banner-container {
     position: relative;
     background-color: #edbbba;
-    width: 100%;
-    height: 30px; /* Adjust the height as per your requirement */
+    width: auto;
+    height: 60px; /* Adjust the height as per your requirement */
 }
 
 #banner {
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%; /* Adjust the width as per your requirement */
-    height: 30 px;
+    width: auto; /* Adjust the width as per your requirement */
+    height: 60px;
 }
 
 /* CSS styling for the profiles */
