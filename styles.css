@@ -10,8 +10,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 15%; /* Adjust the width as per your requirement */
-    height: auto;
+    width: 100%; /* Adjust the width as per your requirement */
+    height: 30 px;
 }
 
 /* CSS styling for the profiles */
