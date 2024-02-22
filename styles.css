@@ -18,7 +18,7 @@
 
 .custom-iframe{
     position: absolute;
-    top: 120px; /* Position below the banner */
+    top: 900px; /* Position below the banner */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     width: 100%; /* Adjust the width as per your requirement */
@@ -29,21 +29,22 @@
 #user-profiles {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 800px;
+    justify-content: space-evenly;
+    margin: 120px;
+    padding: 20px;
 }
 
 .user-profile {
-    width: 40%;
+    width: 500px;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #ccc; /* Increased border size */
+    border-radius: 10px;
     margin-bottom: 10px;
-    font-size: 20px; /* Adjust the font size as per your requirement */
+    font-size: 25px; /* Adjust the font size as per your requirement */
 } 
 .user-profile img {
     width: 100%;
-    height: 100px;
+    height: 400px;
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 10px;
