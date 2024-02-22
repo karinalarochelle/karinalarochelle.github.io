@@ -21,8 +21,8 @@
     top: 23%; /* Position below the banner */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
-    width: auto; /* Adjust the width as per your requirement */
-    height: 35%;
+    width: 100vw; /* Adjust the width to fit the whole screen */
+    height: 100vw;
 }
 /* CSS styling for the profiles */
 .profile {
