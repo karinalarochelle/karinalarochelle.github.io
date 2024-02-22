@@ -25,12 +25,26 @@
     height: 100%; /* Adjust the height as per your requirement */
 }
 
-/* CSS styling for the header */
-h1 {
-    position: absolute;
-    top: 80%; /* Position below the custom iframe */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
-    font-size: 80px; /* Adjust the font size as per your requirement */
-    color: black; /* Set the text color to black */
+/* styles.css */
+#user-profiles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.user-profile {
+    width: 40%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.user-profile img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }

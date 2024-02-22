@@ -1,5 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase } from "firebase/database";
+// script.js
+// Replace these with your actual Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyC4F6sQ9kraEhyjb-gXI9ZS5CCdonaoCO8",
     authDomain: "profile-app-e1282.firebaseapp.com",
@@ -11,27 +12,45 @@ const firebaseConfig = {
   };
 
 const app = initializeApp(firebaseConfig);
-
-// Get a reference to the database service
 const database = getDatabase(app);
 
-// Hardcoded user IDs to look up
-const userIds = ["CJJ7GOzLxRZhX3lfYvyTqs47PGz1", "Zo6eYFlIXxOo1YC4SaaTHWh5Aux2"];
+const userIds = ["CJJ7GOzLxRZhX3lfYvyTqs47PGz1", "Zo6eYFlIXxOo1YC4SaaTHWh5Aux2"]; // Replace with your two user IDs
 
-// Function to display user profiles
-const displayUserProfiles = (userIds) => {
-    userIds.forEach((userId) => {
-        const userRef = ref(database, `users/${userId}`);
-        onValue(userRef, (snapshot) => {
-            const user = snapshot.val();
-            console.log("User ID:", userId);
-            console.log("Name:", user.name);
-            console.log("Birthday:", user.birthday);
-            console.log("Phone Number:", user.phone_number);
-            console.log("Rating:", user.rating);
-            console.log("Image:", user.image);
-            // Display user profile on the web page
-        });
+function displayUserProfile(userId) {
+    const userRef = ref(database, `/${userId}`);
+    onValue(userRef, (snapshot) => {
+        const user = snapshot.val();
+        if (!user) { // Handle case where user doesn't exist
+            console.error(`User ID ${userId} not found in database.`);
+            return;
+        }
+
+        const userProfile = document.createElement("div");
+        userProfile.classList.add("user-profile");
+
+        const image = document.createElement("img");
+        image.src = user.image;
+        userProfile.appendChild(image);
+
+        const name = document.createElement("p");
+        name.textContent = `Name: ${user.name}`;
+        userProfile.appendChild(name);
+
+        const birthday = document.createElement("p");
+        birthday.textContent = `Birthday: ${user.birthday}`;
+        userProfile.appendChild(birthday);
+
+        const phoneNumber = document.createElement("p");
+        phoneNumber.textContent = `Phone Number: ${user.phone_number}`;
+        userProfile.appendChild(phoneNumber);
+
+        const rating = document.createElement("p");
+        rating.textContent = `Rating: ${user.rating}`;
+        userProfile.appendChild(rating);
+
+        document.getElementById("user-profiles").appendChild(userProfile);
     });
-};
-displayUserProfiles(userIds);
+}
+
+userIds.forEach(displayUserProfile);
+
