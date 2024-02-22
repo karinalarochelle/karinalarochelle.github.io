@@ -1,8 +1,18 @@
 /* CSS styling for the banner */
-#banner {
-    width: 100%;
-    height: auto;
-}
+.banner-container {
+    position: absolute; /* Position on top */
+    top: 0; /* Align to top of the page */
+    left: 0; /* Align to left of the page */
+    background-color: transparent; /* Make it transparent */
+    padding: 20px; /* Add some padding around the image */
+  }
+
+  .banner {
+    background-color: your_banner_color; /* Set your desired banner color */
+    height: 728; /* Set desired banner height */
+    width: 100%; /* Stretch across the full width */
+    margin-top: 80px; /* Adjust margin based on image container height */
+  }
 
 /* CSS styling for the profiles */
 .profile {

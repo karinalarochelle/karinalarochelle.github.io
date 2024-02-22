@@ -1,12 +1,12 @@
 // Initialize Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyC4F6sQ9kraEhyjb-gXI9ZS5CCdonaoCO8",
-  authDomain: "profile-app-e1282.firebaseapp.com",
-  databaseURL: "https://profile-app-e1282-default-rtdb.firebaseio.com",
-  projectId: "profile-app-e1282",
-  storageBucket: "profile-app-e1282.appspot.com",
-  messagingSenderId: "4762613742",
-  appId: "1:4762613742:web:51feddf2c2797f794000ff"
+    authDomain: "profile-app-e1282.firebaseapp.com",
+    databaseURL: "https://profile-app-e1282-default-rtdb.firebaseio.com",
+    projectId: "profile-app-e1282",
+    storageBucket: "profile-app-e1282.appspot.com",
+    messagingSenderId: "4762613742",
+    appId: "1:4762613742:web:51feddf2c2797f794000ff"
 };
 firebase.initializeApp(firebaseConfig);
 
