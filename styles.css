@@ -16,6 +16,14 @@
     height: 18%;
 }
 
+.custom-iframe{
+    position: absolute;
+    top: 23%; /* Position below the banner */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    width: auto; /* Adjust the width as per your requirement */
+    height: 35%;
+}
 /* CSS styling for the profiles */
 .profile {
     border: 1px solid #ccc;
