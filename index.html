@@ -1,25 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Banner with Logo -->
+    <img id="banner" src="logo.png" alt="Banner with Logo">
 
-<!-- BEGIN: Logo Banner -->
-<div class="logo-banner">
-    <img src="logo.png" alt="Logo">
-</div>
-<!-- END: Logo Banner -->
+    <!-- Profiles Section -->
+    <div id="profiles-container"></div>
 
-<!-- BEGIN: User Profiles -->
-<div class="user-profiles">
-    <div class="user-profile">
-        <img src="user1.png" alt="User 1">
-        <h3>User 1</h3>
-        <p>Profile Description</p>
-    </div>
-    <div class="user-profile">
-        <img src="user2.png" alt="User 2">
-        <h3>User 2</h3>
-        <p>Profile Description</p>
-    </div>
-</div>
-<!-- END: User Profiles -->
-
-<!-- BEGIN: Profile App -->
-<iframe src="https://your-profile-app-url.com" frameborder="0"></iframe>
-<!-- END: Profile App -->
+    <!-- Firebase Web API -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
