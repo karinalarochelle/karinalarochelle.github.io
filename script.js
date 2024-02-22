@@ -1,37 +1,37 @@
-// Replace these with your actual Firebase project configuration
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, onValue } from "firebase/database";
 const firebaseConfig = {
-    // ...
-};
+    apiKey: "AIzaSyC4F6sQ9kraEhyjb-gXI9ZS5CCdonaoCO8",
+    authDomain: "profile-app-e1282.firebaseapp.com",
+    databaseURL: "https://profile-app-e1282-default-rtdb.firebaseio.com",
+    projectId: "profile-app-e1282",
+    storageBucket: "profile-app-e1282.appspot.com",
+    messagingSenderId: "4762613742",
+    appId: "1:4762613742:web:901ee20544d718fc4000ff"
+  };
 
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const database = firebase.database();
+// Get a reference to the database service
+const database = getDatabase(app);
 
-const userProfiles = document.querySelector('.user-profiles');
+// Hardcoded user IDs to look up
+const userIds = ["CJJ7GOzLxRZhX3lfYvyTqs47PGz1", "Zo6eYFlIXxOo1YC4SaaTHWh5Aux2"];
 
-// Loop through all users in the "users" node
-database.ref('users').on('value', snapshot => {
-    const users = snapshot.val();
-
-    // Clear existing profiles before displaying new ones
-    userProfiles.innerHTML = '';
-
-    for (const userId in users) {
-        // Create a new profile element for each user
-        const profileElement = document.createElement('div');
-        profileElement.classList.add('profile');
-
-        // Retrieve and display user data
-        database.ref(`users/${userId}`).on('value', userSnapshot => {
-            const userData = userSnapshot.val();
-            profileElement.innerHTML = `
-                <img src="${userData.photoUrl}" alt="${userData.name}">
-                <h2>${userData.name}</h2>
-                <p>${userData.bio}</p>
-            `;
+// Function to display user profiles
+const displayUserProfiles = (userIds) => {
+    userIds.forEach((userId) => {
+        const userRef = ref(database, `users/${userId}`);
+        onValue(userRef, (snapshot) => {
+            const user = snapshot.val();
+            console.log("User ID:", userId);
+            console.log("Name:", user.name);
+            console.log("Birthday:", user.birthday);
+            console.log("Phone Number:", user.phone_number);
+            console.log("Rating:", user.rating);
+            console.log("Image:", user.image);
+            // Display user profile on the web page
         });
-
-        // Add the profile element to the DOM
-        userProfiles.appendChild(profileElement);
-    }
-});
+    });
+};
+displayUserProfiles(userIds);

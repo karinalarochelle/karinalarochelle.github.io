@@ -21,21 +21,16 @@
     top: 23%; /* Position below the banner */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
-    width: 100vw; /* Adjust the width to fit the whole screen */
-    height: 100vw;
-}
-/* CSS styling for the profiles */
-.profile {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+    width: 100%; /* Adjust the width as per your requirement */
+    height: 100%; /* Adjust the height as per your requirement */
 }
 
-.profile h2 {
-    margin-top: 0;
-}
-
-.profile p {
-    margin-bottom: 5px;
+/* CSS styling for the header */
+h1 {
+    position: absolute;
+    top: 80%; /* Position below the custom iframe */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    font-size: 80px; /* Adjust the font size as per your requirement */
+    color: black; /* Set the text color to black */
 }
