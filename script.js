@@ -1,43 +1,37 @@
+// Replace these with your actual Firebase project configuration
 const firebaseConfig = {
-    // Firebase configuration
+    // ...
 };
 
 firebase.initializeApp(firebaseConfig);
 
-// Fetch and display profiles
-function displayProfiles() {
-    // Hardcoded IDs to look up
-    const userIds = ['user1', 'user2'];
+const database = firebase.database();
 
-    const table = document.createElement('table');
-    const tableBody = document.createElement('tbody');
+const userProfiles = document.querySelector('.user-profiles');
 
-    userIds.forEach(userId => {
-        dbRef.child(userId).once('value', snapshot => {
-            const profile = snapshot.val();
-            if (profile) {
-                const row = document.createElement('tr');
+// Loop through all users in the "users" node
+database.ref('users').on('value', snapshot => {
+    const users = snapshot.val();
 
-                const nameCell = document.createElement('td');
-                nameCell.textContent = profile.name;
-                row.appendChild(nameCell);
+    // Clear existing profiles before displaying new ones
+    userProfiles.innerHTML = '';
 
-                const emailCell = document.createElement('td');
-                emailCell.textContent = profile.email;
-                row.appendChild(emailCell);
+    for (const userId in users) {
+        // Create a new profile element for each user
+        const profileElement = document.createElement('div');
+        profileElement.classList.add('profile');
 
-                const ageCell = document.createElement('td');
-                ageCell.textContent = profile.age;
-                row.appendChild(ageCell);
-
-                tableBody.appendChild(row);
-            }
+        // Retrieve and display user data
+        database.ref(`users/${userId}`).on('value', userSnapshot => {
+            const userData = userSnapshot.val();
+            profileElement.innerHTML = `
+                <img src="${userData.photoUrl}" alt="${userData.name}">
+                <h2>${userData.name}</h2>
+                <p>${userData.bio}</p>
+            `;
         });
-    });
 
-    table.appendChild(tableBody);
-    document.getElementById('profiles-container').appendChild(table);
-}
-
-// Call displayProfiles function on page load
-window.onload = displayProfiles;
+        // Add the profile element to the DOM
+        userProfiles.appendChild(profileElement);
+    }
+});
