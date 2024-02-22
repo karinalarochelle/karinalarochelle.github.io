@@ -1,9 +1,11 @@
 /* CSS styling for the banner */
-#banner-container {
-    position: relative;
+.banner-container {
+    position: absolute;
+    top: 0;
     background-color: #edbbba;
-    width: auto;
-    height: 60px; /* Adjust the height as per your requirement */
+    width: 100%;
+    height: 18%;
+    left: 0; /* Added to make the banner container go all across the screen */
 }
 
 #banner {
@@ -11,7 +13,7 @@
     top: 0;
     right: 0;
     width: auto; /* Adjust the width as per your requirement */
-    height: 60px;
+    height: 18%;
 }
 
 /* CSS styling for the profiles */
